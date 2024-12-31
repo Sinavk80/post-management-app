@@ -1,0 +1,27 @@
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-header bg-success text-white">
+      <h2><%= action_name == "new" ? "Create New Post" : "Edit Post" %></h2>
+    </div>
+    <div class="card-body">
+      <%= form_with model: [@category, @post], local: true, class: "needs-validation" do |form| %>
+        <div class="mb-3">
+          <%= form.label :title, class: "form-label" %>
+          <%= form.text_field :title, class: "form-control", placeholder: "Enter post title" %>
+        </div>
+        <div class="mb-3">
+          <%= form.label :body, class: "form-label" %>
+          <%= form.text_area :body, class: "form-control", rows: 5, placeholder: "Enter post content" %>
+        </div>
+        <div class="mb-3">
+          <%= form.label :liked, class: "form-label" %>
+          <%= form.check_box :liked, class: "form-check-input ms-2" %>
+        </div>
+        <div>
+          <%= form.submit class: "btn btn-success" %>
+          <%= link_to "Cancel",posts_path(@category), class: "btn btn-secondary ms-2" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

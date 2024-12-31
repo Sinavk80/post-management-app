@@ -1,0 +1,23 @@
+<h4>Category Name:</h4>
+<p><%= @category.name %></p>
+
+<%= link_to 'Back to Categories', categories_path, class: 'btn btn-sm btn-secondary' %>
+
+<h4 style="margin-top:50px;">Posts in this Category</h4>
+
+<table class="table mt-3">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Liked</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @category.posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.liked %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

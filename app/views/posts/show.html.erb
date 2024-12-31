@@ -1,0 +1,14 @@
+<h5>Post title:</h5>
+<p><%= @post.title %></p>
+<br/>
+<h5>Post category:</h5>
+<p><%= @post.category.name %></p>
+<br/>
+<h5>Post Body:</h5>
+<p><%= @post.body %></p>
+<br/>
+<div class="d-flex">
+    <%= link_to 'Back to All Posts', posts_path, class: 'btn btn-secondary' %>
+    <%= link_to "Edit", edit_post_path(@post), class: "btn btn-warning btn-sm", style: "margin-left: 0.5rem;" %>
+    <%= button_to "Delete", post_path(@post), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-danger btn-sm p-2", style: "margin-left: 0.5rem;" %>
+</div>
